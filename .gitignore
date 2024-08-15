@@ -4,3 +4,5 @@ node_modules
 src/account.cairo
 scripts/multi-branch-commit.sh
 .snfoundry_cache
+
+cairols-profile*
