@@ -15,11 +15,11 @@ fn approve_valid_signature() {
     let dispatcher = IAccountDispatcher { contract_address };
 
     let message_hash = 456;
-    let (r, s): (felt252, felt252) = signer.sign(message_hash);
+    let (r, s): (felt252, felt252) = signer.sign(message_hash).unwrap();
     let signature = array![r, s];
 
     let validation = dispatcher.is_valid_signature(message_hash, signature);
-    assert(validation == VALIDATED, 'Invalid signature');
+    assert!(validation == VALIDATED, "Invalid signature");
 }
 
 #[test]
@@ -30,9 +30,9 @@ fn reject_invalid_signature() {
 
     let mut hacker = KeyPairTrait::<felt252, felt252>::from_secret_key(456);
     let message_hash = 456;
-    let (r, s): (felt252, felt252) = hacker.sign(message_hash);
+    let (r, s): (felt252, felt252) = hacker.sign(message_hash).unwrap();
     let signature = array![r, s];
 
     let validation = dispatcher.is_valid_signature(message_hash, signature);
-    assert(validation != VALIDATED, 'Invalid signature accepted');
+    assert!(validation != VALIDATED, "Invalid signature accepted");
 }

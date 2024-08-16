@@ -6,7 +6,7 @@ trait IAccount<T> {
 }
 
 #[starknet::contract(account)]
-mod Account {
+mod account {
     use super::IAccount;
 
     #[storage]
