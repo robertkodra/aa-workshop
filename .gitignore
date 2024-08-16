@@ -1,8 +1,13 @@
+# General
 target
 .env
 node_modules
 src/account.cairo
 scripts/multi-branch-commit.sh
-.snfoundry_cache
 
+# Scarb
 cairols-profile*
+Scarb.lock
+
+# Starknet Foundry
+.snfoundry_cache
