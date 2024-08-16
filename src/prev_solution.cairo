@@ -7,7 +7,7 @@ trait IAccount<T> {
 }
 
 #[starknet::contract(account)]
-mod Account {
+mod account {
     use super::IAccount;
     use starknet::VALIDATED;
     use ecdsa::check_ecdsa_signature;
